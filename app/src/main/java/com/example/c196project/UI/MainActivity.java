@@ -16,15 +16,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Repository repo = new Repository(getApplication());
+        Term term = new Term(1, "Term 1", "02/01/2022", "07/31/2022");
+        repo.insert(term);
+        Term termTwo = new Term(2, "Term 2", "08/01/2022", "01/31/2023");
+        repo.insert(termTwo);
     }
 
     public void enterHandler(View view) {
         Intent intent = new Intent(MainActivity.this, TermList.class);
         startActivity(intent);
 
-        Repository repo = new Repository(getApplication());
-        Term term = new Term(1, "Term 1", "02/01/2022", "07/31/2022");
-        repo.insert(term);
     }
 
 }

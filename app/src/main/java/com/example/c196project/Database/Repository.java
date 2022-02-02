@@ -43,7 +43,7 @@ public class Repository {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return null;
+        return mAllTerms;
     }
 
     public void insert(Term term) {

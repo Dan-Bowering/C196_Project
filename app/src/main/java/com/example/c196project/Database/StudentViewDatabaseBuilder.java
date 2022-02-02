@@ -31,7 +31,6 @@ public abstract class StudentViewDatabaseBuilder extends RoomDatabase {
                         .fallbackToDestructiveMigration()
                         .build();
                 }
-
             }
         }
         return INSTANCE;

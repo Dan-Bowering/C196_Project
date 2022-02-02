@@ -17,14 +17,9 @@ import java.util.List;
 
 public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder> {
 
-    public Context getContext() {
-        return context;
-    }
-
     class TermViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView termItemView;
-
         private TermViewHolder(View itemView) {
 
             super(itemView);
@@ -35,11 +30,12 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
                 public void onClick(View view) {
                     int position = getAdapterPosition();
                     final Term current = mTerms.get(position);
-                    Intent intent = new Intent(context, CourseList.class);
+                    Intent intent = new Intent(context, TermList.class);
                     intent.putExtra("id", current.getTermId());
                     intent.putExtra("name", current.getTermName());
                     intent.putExtra("start", current.getTermStart());
                     intent.putExtra("end", current.getTermEnd());
+                    context.startActivity(intent);
                 }
             });
         }

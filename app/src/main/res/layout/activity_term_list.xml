@@ -10,9 +10,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="409dp"
         android:layout_height="729dp"
-        android:background="@color/teal_700"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
+        android:background="#143757"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
