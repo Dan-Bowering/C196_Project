@@ -8,9 +8,20 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
         android:background="#143757"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Term"
+        android:backgroundTint="#143757"
+        android:paddingBottom="5dp"
+        android:onClick="goToAddTerm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="157dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

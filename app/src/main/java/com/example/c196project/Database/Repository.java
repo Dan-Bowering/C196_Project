@@ -57,4 +57,29 @@ public class Repository {
             e.printStackTrace();
         }
     }
+
+    public List<Course> getAllCourses() {
+        databaseExecutors.execute(() -> {
+            mAllCourses = mCourseDAO.getAllCourses();
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAllCourses;
+    }
+
+    public void insert(Course course) {
+
+        databaseExecutors.execute(() ->{
+            mCourseDAO.insertCourse(course);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
