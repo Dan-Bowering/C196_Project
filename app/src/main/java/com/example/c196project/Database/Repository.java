@@ -82,4 +82,29 @@ public class Repository {
             e.printStackTrace();
         }
     }
+
+    public List<Assessment> getAllAssessments() {
+        databaseExecutors.execute(() -> {
+            mAllAssessments = mAssessmentDAO.getAllAssessments();
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAllAssessments;
+    }
+
+    public void insert(Assessment assessment) {
+
+        databaseExecutors.execute(() ->{
+            mAssessmentDAO.insertAssessment(assessment);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

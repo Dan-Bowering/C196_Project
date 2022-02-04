@@ -25,7 +25,7 @@ public class CourseList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
         termID = getIntent().getIntExtra("id", -1);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView2);
         Repository repository = new Repository((getApplication()));
         final CourseAdapter adapter = new CourseAdapter(this);
         recyclerView.setAdapter(adapter);

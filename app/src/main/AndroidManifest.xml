@@ -11,7 +11,9 @@
         android:theme="@style/Theme.C196Project">
         <activity
             android:name=".UI.AssessmentList"
-            android:exported="false" />
+            android:label="Course Details"
+            android:exported="false"
+            android:parentActivityName=".UI.CourseList" />
         <activity
             android:name=".UI.CourseList"
             android:label="Term Details"
