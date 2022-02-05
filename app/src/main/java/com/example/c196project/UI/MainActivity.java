@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.c196project.Database.Repository;
+import com.example.c196project.Entity.Assessment;
 import com.example.c196project.Entity.Course;
 import com.example.c196project.Entity.Term;
 import com.example.c196project.R;
@@ -35,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
                 "Carolyn Sher-DeCusatis", "385-428-7192",
                 "carolyn.sher@wgu.edu", 1);
         repo.insert(courseThree);
+        Assessment assessment = new Assessment(1960, "ABM2",
+                "Performance Assessment", "03/16/2022", "04/30/2022",
+                196);
+        repo.insert(assessment);
     }
 
     public void enterHandler(View view) {
