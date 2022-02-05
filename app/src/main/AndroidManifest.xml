@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.C196Project">
+        <activity android:name=".UI.AssessmentDetail"
+            android:label="Assessment Details"
+            android:exported="false"
+            android:parentActivityName=".UI.AssessmentList" />
         <activity
             android:name=".UI.AssessmentList"
             android:label="Course Details"
@@ -24,11 +28,6 @@
             android:label="Term Menu"
             android:exported="false"
             android:parentActivityName=".UI.MainActivity" />
-        <activity
-            android:name=".UI.AddTerm"
-            android:label="Add Term"
-            android:exported="false"
-            android:parentActivityName=".UI.TermList" />
         <activity
             android:name=".UI.MainActivity"
             android:exported="true">

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 "Carolyn Sher-DeCusatis", "385-428-7192",
                 "carolyn.sher@wgu.edu", 1);
         repo.insert(courseThree);
-        Assessment assessment = new Assessment(1960, "ABM2",
+        Assessment assessment = new Assessment(1960, "AMB2",
                 "Performance Assessment", "03/16/2022", "04/30/2022",
                 196);
         repo.insert(assessment);

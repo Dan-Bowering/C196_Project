@@ -1,16 +1,15 @@
 package com.example.c196project.UI;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.c196project.Database.Repository;
 import com.example.c196project.Entity.Assessment;
-import com.example.c196project.Entity.Course;
 import com.example.c196project.R;
 
 import java.util.ArrayList;
@@ -57,9 +56,9 @@ public class AssessmentList extends AppCompatActivity {
         start = getIntent().getStringExtra("start");
         end = getIntent().getStringExtra("end");
         status = getIntent().getStringExtra("status");
-        instructorName = getIntent().getStringExtra("instructorName");
-        instructorPhone = getIntent().getStringExtra("instructorPhone");
-        instructorEmail = getIntent().getStringExtra("instructorEmail");
+        instructorName = getIntent().getStringExtra("instructor name");
+        instructorPhone = getIntent().getStringExtra("instructor phone");
+        instructorEmail = getIntent().getStringExtra("instructor email");
 
         // Assign data to the EditText fields
         editId.setText(Integer.toString(id));
