@@ -3,16 +3,8 @@ package com.example.c196project.UI;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.c196project.Database.Repository;
-import com.example.c196project.Entity.Term;
 import com.example.c196project.R;
-
-import java.util.List;
 
 public class AssessmentDetail extends AppCompatActivity {
 

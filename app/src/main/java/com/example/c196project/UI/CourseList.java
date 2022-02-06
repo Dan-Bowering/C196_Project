@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
 import com.example.c196project.Database.Repository;
@@ -27,6 +28,7 @@ public class CourseList extends AppCompatActivity {
     String name;
     String start;
     String end;
+    Repository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,7 @@ public class CourseList extends AppCompatActivity {
         editEnd.setText(end);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView2);
-        Repository repository = new Repository((getApplication()));
+        repository = new Repository((getApplication()));
         final CourseAdapter adapter = new CourseAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -73,5 +75,25 @@ public class CourseList extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void saveTermButton(View view) {
+
+        Term term;
+
+        for (Term t : repository.getAllTermIds()) {
+            if (id == t.getTermId()) {
+                term = new Term(id, editName.getText().toString(), editStart.getText().toString(),
+                        editEnd.getText().toString());
+                repository.update(term);
+            }
+
+            else {
+                int newId = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermId() + 1;
+                term = new Term(newId, editName.getText().toString(), editStart.getText().toString(),
+                        editEnd.getText().toString());
+                repository.insert(term);
+            }
+        }
     }
 }
