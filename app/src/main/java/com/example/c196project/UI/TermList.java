@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import com.example.c196project.R;
 import java.util.List;
 
 public class TermList extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +49,9 @@ public class TermList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToCourseList(View view) {
-        Intent intent = new Intent(TermList.this, CourseList.class);
+    public void goToAddTerm(View view) {
+        Intent intent = new Intent(TermList.this, AddTerm.class);
         startActivity(intent);
     }
-
 
 }

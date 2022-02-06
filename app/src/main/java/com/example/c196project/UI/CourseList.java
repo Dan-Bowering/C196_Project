@@ -77,23 +77,13 @@ public class CourseList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void saveTermButton(View view) {
+    public void saveUpdateTermButton(View view) {
 
         Term term;
 
-        for (Term t : repository.getAllTermIds()) {
-            if (id == t.getTermId()) {
-                term = new Term(id, editName.getText().toString(), editStart.getText().toString(),
-                        editEnd.getText().toString());
-                repository.update(term);
-            }
+        term = new Term(id, editName.getText().toString(), editStart.getText().toString(),
+                editEnd.getText().toString());
+        repository.update(term);
 
-            else {
-                int newId = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermId() + 1;
-                term = new Term(newId, editName.getText().toString(), editStart.getText().toString(),
-                        editEnd.getText().toString());
-                repository.insert(term);
-            }
-        }
     }
 }
