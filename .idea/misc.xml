@@ -6,10 +6,12 @@
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_add_assessment.xml" value="0.25" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_add_course.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_add_term.xml" value="0.33" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_assessment_detail.xml" value="0.33" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_assessment_list.xml" value="0.22" />
-        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_course_list.xml" value="0.25" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_course_list.xml" value="0.22" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/activity_term_list.xml" value="0.25" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196Project2/app/src/main/res/layout/assessment_list_item.xml" value="0.20520833333333333" />

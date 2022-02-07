@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,5 +86,11 @@ public class CourseList extends AppCompatActivity {
                 editEnd.getText().toString());
         repository.update(term);
 
+    }
+
+    public void goToAddCourse(View view) {
+
+        Intent intent = new Intent(CourseList.this, AddCourse.class);
+        startActivity(intent);
     }
 }

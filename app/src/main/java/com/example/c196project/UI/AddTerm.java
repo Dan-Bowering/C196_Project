@@ -1,6 +1,7 @@
 package com.example.c196project.UI;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,15 @@ public class AddTerm extends AppCompatActivity {
         editName = findViewById(R.id.editTermName);
         editStart = findViewById(R.id.editTermStart);
         editEnd = findViewById(R.id.editTermEnd);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

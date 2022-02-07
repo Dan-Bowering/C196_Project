@@ -1,36 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.AssessmentList">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView3"
-        android:layout_width="match_parent"
-        android:layout_height="295dp"
-        android:background="#143757"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView5" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#143757"
-        android:paddingBottom="5dp"
-        android:text="Add Assessment"
-        android:onClick="goToAddAssessment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="683dp" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp" >
 
         <LinearLayout
@@ -54,8 +31,10 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
+                    android:hint="Auto-generated"
+                    android:textColor="#6A6A6A"
                     android:editable="false"
-                    tools:ignore="Deprecated"/>
+                    tools:ignore="Deprecated" />
             </LinearLayout>
 
             <LinearLayout
@@ -206,22 +185,10 @@
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#143757"
                 android:text="Save"
-                android:onClick="saveUpdateCourseButton"/>
+                android:clickable="true"
+                android:onClick="saveAddCourseButton" />
 
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#000000"
-        android:editable="false"
-        android:text="Associated Assessments"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/scrollview"
-        tools:ignore="Deprecated"
-        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
