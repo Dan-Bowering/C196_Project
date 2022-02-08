@@ -14,6 +14,8 @@ import com.example.c196project.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static int numAlert;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,16 +27,16 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(termTwo);
         Course course = new Course(482, "Software I", "02/01/2022",
                 "03/15/2022", "Completed", "Malcolm Wabarra",
-                "384-599-8787", "mwabarra@wgu.edu", 1);
+                "384-599-8787", "mwabarra@wgu.edu", 1, null);
         repo.insert(course);
         Course courseTwo = new Course(195, "Software II", "08/01/2022",
                 "10/01/2022", "In Progress", "Malcolm Wabarra",
-                "384-599-8787", "mwabarra@wgu.edu", 2);
+                "384-599-8787", "mwabarra@wgu.edu", 2, null);
         repo.insert(courseTwo);
         Course courseThree = new Course(196, "Mobile Application Development",
                 "03/16/2022", "04/30/2022", "Plan To Take",
                 "Carolyn Sher-DeCusatis", "385-428-7192",
-                "carolyn.sher@wgu.edu", 1);
+                "carolyn.sher@wgu.edu", 1, null);
         repo.insert(courseThree);
         Assessment assessment = new Assessment(1960, "AMB2",
                 "Performance Assessment", "03/16/2022", "04/30/2022",

@@ -9,36 +9,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.C196Project">
-        <activity android:name=".UI.AddAssessment"
+        <receiver
+            android:name=".UI.MyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <activity
+            android:name=".UI.AddAssessment"
+            android:exported="false"
             android:label="Add Assessment"
-            android:exported="false"
             android:parentActivityName=".UI.AssessmentList" />
-        <activity android:name=".UI.AddCourse"
+        <activity
+            android:name=".UI.AddCourse"
+            android:exported="false"
             android:label="Add Course"
-            android:exported="false"
             android:parentActivityName=".UI.CourseList" />
-        <activity android:name=".UI.AddTerm"
+        <activity
+            android:name=".UI.AddTerm"
+            android:exported="false"
             android:label="Add Term"
-            android:exported="false"
             android:parentActivityName=".UI.TermList" />
-        <activity android:name=".UI.AssessmentDetail"
-            android:label="Assessment Details"
+        <activity
+            android:name=".UI.AssessmentDetail"
             android:exported="false"
+            android:label="Assessment Details"
             android:parentActivityName=".UI.AssessmentList" />
         <activity
             android:name=".UI.AssessmentList"
-            android:label="Course Details"
             android:exported="false"
+            android:label="Course Details"
             android:parentActivityName=".UI.CourseList" />
         <activity
             android:name=".UI.CourseList"
-            android:label="Term Details"
             android:exported="false"
+            android:label="Term Details"
             android:parentActivityName=".UI.TermList" />
         <activity
             android:name=".UI.TermList"
-            android:label="Term Menu"
             android:exported="false"
+            android:label="Term Menu"
             android:parentActivityName=".UI.MainActivity" />
         <activity
             android:name=".UI.MainActivity"

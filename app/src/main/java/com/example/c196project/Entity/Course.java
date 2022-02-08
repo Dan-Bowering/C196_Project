@@ -16,10 +16,11 @@ public class Course {
     private String instructorPhone;
     private String instructorEmail;
     private int termId;
+    private String courseNote;
 
     public Course(int courseId, String courseName, String courseStart, String courseEnd,
                   String courseStatus, String instructorName, String instructorPhone,
-                  String instructorEmail, int termId) {
+                  String instructorEmail, int termId, String courseNote) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.courseStart = courseStart;
@@ -29,6 +30,7 @@ public class Course {
         this.instructorPhone = instructorPhone;
         this.instructorEmail = instructorEmail;
         this.termId = termId;
+        this.courseNote = courseNote;
     }
 
     @Override
@@ -42,8 +44,8 @@ public class Course {
                 ", instructorName='" + instructorName + '\'' +
                 ", instructorPhone='" + instructorPhone + '\'' +
                 ", instructorEmail='" + instructorEmail + '\'' +
-                ", termId=" + termId +
-                '}';
+                ", termId=" + termId + '\'' +
+                ", courseNote=" + courseNote + '}';
     }
 
     public int getCourseId() {
@@ -116,5 +118,13 @@ public class Course {
 
     public void setTermId(int termId) {
         this.termId = termId;
+    }
+
+    public String getCourseNote() {
+        return courseNote;
+    }
+
+    public void setCourseNote(String courseNote) {
+        this.courseNote = courseNote;
     }
 }
