@@ -7,7 +7,7 @@
     tools:context=".UI.TermList">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/termRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="625dp"
         android:background="#143757"

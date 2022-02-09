@@ -14,10 +14,13 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.c196project.Database.Repository;
 import com.example.c196project.Entity.Assessment;
+import com.example.c196project.Entity.Course;
 import com.example.c196project.R;
 
 import java.text.ParseException;
@@ -45,6 +48,7 @@ public class AssessmentDetail extends AppCompatActivity {
     final Calendar calendarStart = Calendar.getInstance();
     final Calendar calendarEnd = Calendar.getInstance();
     String dateFormat;
+    Assessment currentAssessment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +159,17 @@ public class AssessmentDetail extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
+                return true;
+
+            case R.id.delete:
+                for (Assessment assessment : repository.getAllAssessments()) {
+                    if (assessment.getAssessmentId() == id) currentAssessment = assessment;
+                }
+
+                repository.delete(currentAssessment);
+                Toast.makeText(AssessmentDetail.this, currentAssessment.getAssessmentName() +
+                        " was deleted", Toast.LENGTH_LONG).show();
+                finish();
                 return true;
 
             case R.id.startNotify:

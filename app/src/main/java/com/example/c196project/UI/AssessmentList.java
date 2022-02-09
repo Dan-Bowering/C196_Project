@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.c196project.Database.Repository;
 import com.example.c196project.Entity.Assessment;
 import com.example.c196project.Entity.Course;
+import com.example.c196project.Entity.Term;
 import com.example.c196project.R;
 
 import java.text.ParseException;
@@ -58,6 +60,8 @@ public class AssessmentList extends AppCompatActivity {
     final Calendar calendarStart = Calendar.getInstance();
     final Calendar calendarEnd = Calendar.getInstance();
     String dateFormat;
+    Course currentCourse;
+    int numAssessments;
 
 
     @Override
@@ -101,7 +105,7 @@ public class AssessmentList extends AppCompatActivity {
         editTermId.setText(Integer.toString(termId));
         editCourseNote.setText(courseNote);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView3);
+        RecyclerView recyclerView = findViewById(R.id.assessmentRecyclerView);
         repository = new Repository((getApplication()));
         final AssessmentAdapter adapter = new AssessmentAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -194,6 +198,28 @@ public class AssessmentList extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
+                return true;
+
+            case R.id.delete:
+                for (Course course : repository.getAllCourses()) {
+                    if (course.getCourseId() == id) currentCourse = course;
+                }
+
+                numAssessments = 0;
+                for (Assessment assessment : repository.getAllAssessments()) {
+                    if (assessment.getCourseId() == id) ++numAssessments;
+                }
+
+                if (numAssessments == 0) {
+                    repository.delete(currentCourse);
+                    Toast.makeText(AssessmentList.this, currentCourse.getCourseName() +
+                            " was deleted", Toast.LENGTH_LONG).show();
+                    finish();
+                } else {
+                    Toast.makeText(AssessmentList.this, "Can't delete a course that " +
+                                    "contains assessments",
+                            Toast.LENGTH_LONG).show();
+                }
                 return true;
 
             case R.id.share:

@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.c196project.Database.Repository;
 import com.example.c196project.Entity.Course;
@@ -47,6 +48,8 @@ public class CourseList extends AppCompatActivity {
     final Calendar calendarStart = Calendar.getInstance();
     final Calendar calendarEnd = Calendar.getInstance();
     String dateFormat;
+    Term currentTerm;
+    int numCourses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,7 @@ public class CourseList extends AppCompatActivity {
         editStart.setText(start);
         editEnd.setText(end);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView2);
+        RecyclerView recyclerView = findViewById(R.id.courseRecyclerView);
         repository = new Repository((getApplication()));
         final CourseAdapter adapter = new CourseAdapter(this);
         recyclerView.setAdapter(adapter);
@@ -165,8 +168,29 @@ public class CourseList extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+
+            case R.id.delete:
+                for (Term term : repository.getAllTerms()) {
+                    if (term.getTermId() == id) currentTerm = term;
+                }
+
+                numCourses = 0;
+                for (Course course : repository.getAllCourses()) {
+                    if (course.getTermId() == id) ++numCourses;
+                }
+
+                if (numCourses == 0) {
+                    repository.delete(currentTerm);
+                    Toast.makeText(CourseList.this, currentTerm.getTermName() +
+                            " was deleted", Toast.LENGTH_LONG).show();
+                    finish();
+                } else {
+                    Toast.makeText(CourseList.this, "Can't delete a term that contains courses",
+                            Toast.LENGTH_LONG).show();
+                }
+                return true;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     public void saveUpdateTermButton(View view) {
