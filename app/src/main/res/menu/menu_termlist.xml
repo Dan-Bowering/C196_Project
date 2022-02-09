@@ -9,7 +9,10 @@
     <item android:title="Share"
         android:orderInCategory="100"
         android:id="@+id/share"/>
-    <item android:title="Notify"
+    <item android:title="Start Notification"
         android:orderInCategory="100"
-        android:id="@+id/notify"/>
+        android:id="@+id/startNotify"/>
+    <item android:title="End Notification"
+        android:orderInCategory="100"
+        android:id="@+id/endNotify"/>
 </menu>

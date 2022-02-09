@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
@@ -143,13 +144,20 @@ public class AssessmentDetail extends AppCompatActivity {
         editEnd.setText(sdf.format(calendarEnd.getTime()));
     }
 
+    // Adds the menu to the action bar
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_termlist, menu);
+        return true;
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
                 return true;
 
-            case R.id.notify:
+            case R.id.startNotify:
                 String startDateFromScreen = editStart.getText().toString();
                 Date startDate = null;
 
@@ -159,13 +167,32 @@ public class AssessmentDetail extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Long trigger = startDate.getTime();
-                Intent intent = new Intent(AssessmentDetail.this, MyReceiver.class);
-                intent.putExtra("key", editName.getText().toString() + " begins today!");
-                PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetail.this,
-                        MainActivity.numAlert++, intent, 0);
-                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+                Long startTrigger = startDate.getTime();
+                Intent startIntent = new Intent(AssessmentDetail.this, MyReceiver.class);
+                startIntent.putExtra("key", editName.getText().toString() + " begins today!");
+                PendingIntent startSender = PendingIntent.getBroadcast(AssessmentDetail.this,
+                        MainActivity.numAlert++, startIntent, 0);
+                AlarmManager startAlarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                startAlarmManager.set(AlarmManager.RTC_WAKEUP, startTrigger, startSender);
+                return true;
+
+            case R.id.endNotify:
+                String endDateFromScreen = editEnd.getText().toString();
+                Date endDate = null;
+
+                try {
+                    endDate = sdf.parse(endDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Long endTrigger = endDate.getTime();
+                Intent endIntent = new Intent(AssessmentDetail.this, MyReceiver.class);
+                endIntent.putExtra("key", editName.getText().toString() + " ends today!");
+                PendingIntent endSender = PendingIntent.getBroadcast(AssessmentDetail.this,
+                        MainActivity.numAlert++, endIntent, 0);
+                AlarmManager endAlarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                endAlarmManager.set(AlarmManager.RTC_WAKEUP, endTrigger, endSender);
                 return true;
         }
         return super.onOptionsItemSelected(item);

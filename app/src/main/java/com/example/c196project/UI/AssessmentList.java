@@ -226,8 +226,6 @@ public class AssessmentList extends AppCompatActivity {
                 startAlarmManager.set(AlarmManager.RTC_WAKEUP, startTrigger, startSender);
                 return true;
 
-                // TODO: Figure out a way to combine these alerts on the same case/method
-                // or just keep separate
             case R.id.endNotify:
                 String endDateFromScreen = editEnd.getText().toString();
                 Date endDate = null;
@@ -247,7 +245,6 @@ public class AssessmentList extends AppCompatActivity {
                 endAlarmManager.set(AlarmManager.RTC_WAKEUP, endTrigger, endSender);
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
