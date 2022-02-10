@@ -7,8 +7,8 @@
     <TextView
         android:id="@+id/textViewCL"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingBottom="2dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         android:text="TextView"
         android:textSize="25dp"
         android:layout_margin="2dp"

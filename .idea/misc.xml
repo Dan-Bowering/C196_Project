@@ -3,10 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout-land/activity_assessment_list.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout-land/activity_course_list.xml" value="0.25" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout-land/activity_term_list.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout-land/term_list_item.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_add_assessment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_add_course.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_add_term.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_assessment_detail.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_assessment_list.xml" value="0.33" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_course_list.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/activity_term_list.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/assessment_list_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/course_list_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/layout/term_list_item.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/menu/menu_assessment_detail.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/menu/menu_course_detail.xml" value="0.37083333333333335" />
         <entry key="..\:/Users/DanBowering/AndroidStudioProjects/C196 Project/app/src/main/res/menu/menu_term_detail.xml" value="0.37083333333333335" />

@@ -9,10 +9,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/courseRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="295dp"
+        android:layout_height="250dp"
         android:background="#143757"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4" />
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/button2"
@@ -132,8 +133,6 @@
         android:textSize="25dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/courseRecyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/scrollview"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="Deprecated"
         tools:layout_editor_absoluteX="0dp" />
 
