@@ -21,7 +21,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#00C853"
+        android:backgroundTint="#0AAA4D"
         android:onClick="enterHandler"
         android:text="Enter"
         app:layout_constraintEnd_toEndOf="parent"
