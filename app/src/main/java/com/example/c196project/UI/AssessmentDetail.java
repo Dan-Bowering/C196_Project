@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.c196project.Database.Repository;
 import com.example.c196project.Entity.Assessment;
-import com.example.c196project.Entity.Course;
 import com.example.c196project.R;
 
 import java.text.ParseException;
@@ -151,7 +149,7 @@ public class AssessmentDetail extends AppCompatActivity {
     // Adds the menu to the action bar
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_termlist, menu);
+        getMenuInflater().inflate(R.menu.menu_assessment_detail, menu);
         return true;
     }
 

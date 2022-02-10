@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.c196project.Database.Repository;
 import com.example.c196project.Entity.Assessment;
 import com.example.c196project.Entity.Course;
-import com.example.c196project.Entity.Term;
 import com.example.c196project.R;
 
 import java.text.ParseException;
@@ -190,7 +189,7 @@ public class AssessmentList extends AppCompatActivity {
     // Adds the menu to the action bar
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_termlist, menu);
+        getMenuInflater().inflate(R.menu.menu_course_detail, menu);
         return true;
     }
 
@@ -198,6 +197,22 @@ public class AssessmentList extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
+                return true;
+
+            case R.id.refresh:
+                RecyclerView recyclerView = findViewById(R.id.assessmentRecyclerView);
+                repository = new Repository((getApplication()));
+                final AssessmentAdapter adapter = new AssessmentAdapter(this);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+                // Loop through array list to find assessments with matching course IDs
+                List<Assessment> associatedAssessments = new ArrayList<>();
+                for (Assessment a : repository.getAllAssessments()) {
+                    if (a.getCourseId() == id)
+                        associatedAssessments.add(a);
+                }
+                adapter.setAssessments(associatedAssessments);
                 return true;
 
             case R.id.delete:

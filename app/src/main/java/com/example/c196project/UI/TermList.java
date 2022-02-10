@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,7 +35,7 @@ public class TermList extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_termlist, menu);
+        getMenuInflater().inflate(R.menu.menu_term_list, menu);
         return true;
     }
 
@@ -44,6 +43,16 @@ public class TermList extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
+                return true;
+
+            case R.id.refresh:
+                RecyclerView recyclerView = findViewById(R.id.termRecyclerView);
+                Repository repository = new Repository((getApplication()));
+                List<Term> terms = repository.getAllTerms();
+                final TermAdapter adapter = new TermAdapter(this);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                adapter.setTerms(terms);
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
@@ -24,7 +21,6 @@ import com.example.c196project.Entity.Course;
 import com.example.c196project.Entity.Term;
 import com.example.c196project.R;
 
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -159,7 +155,7 @@ public class CourseList extends AppCompatActivity {
     // Adds the menu to the action bar
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_termlist, menu);
+        getMenuInflater().inflate(R.menu.menu_term_detail, menu);
         return true;
     }
 
@@ -167,6 +163,22 @@ public class CourseList extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
+                return true;
+
+            case R.id.refresh:
+                RecyclerView recyclerView = findViewById(R.id.courseRecyclerView);
+                repository = new Repository((getApplication()));
+                final CourseAdapter adapter = new CourseAdapter(this);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+                // Loop through array list to find courses with matching term IDs
+                List<Course> associatedCourses = new ArrayList<>();
+                for (Course c : repository.getAllCourses()) {
+                    if (c.getTermId() == id)
+                        associatedCourses.add(c);
+                }
+                adapter.setCourses(associatedCourses);
                 return true;
 
             case R.id.delete:
