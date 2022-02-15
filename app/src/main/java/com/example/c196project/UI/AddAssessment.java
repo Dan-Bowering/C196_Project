@@ -35,6 +35,7 @@ public class AddAssessment extends AppCompatActivity {
     final Calendar calendarEnd = Calendar.getInstance();
     String dateFormat;
 
+    // Loads XML activity and initializes EditText fields
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,15 +108,20 @@ public class AddAssessment extends AppCompatActivity {
         });
     }
 
+    // Sets the Start Date DatePicker to the current date
     private void updateLabelStart() {
         editStart.setText(sdf.format(calendarStart.getTime()));
     }
 
+    // Sets the End Date DatePicker to the current date
     private void updateLabelEnd() {
         editEnd.setText(sdf.format(calendarEnd.getTime()));
     }
 
+    // Method to return/handle item from action bar selected
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Returns to the previous screen
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
@@ -124,6 +130,7 @@ public class AddAssessment extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Saves input in the form and adds the new assessment
     public void saveAddAssessmentButton(View view) {
 
         Assessment assessment;

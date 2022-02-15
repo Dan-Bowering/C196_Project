@@ -18,7 +18,7 @@ import java.util.List;
 
 public class TermList extends AppCompatActivity {
 
-
+    // Loads XML activity and sets the RecyclerView list
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,17 +34,22 @@ public class TermList extends AppCompatActivity {
         adapter.setTerms(terms);
     }
 
+    // Adds the menu to the action bar
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_term_list, menu);
         return true;
     }
 
+    // Method to return/handle item from action bar selected
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
+            // Returns to the previous screen
             case android.R.id.home:
                 this.finish();
                 return true;
 
+            // Refreshes the RecyclerView/list
             case R.id.refresh:
                 RecyclerView recyclerView = findViewById(R.id.termRecyclerView);
                 Repository repository = new Repository((getApplication()));
@@ -58,6 +63,7 @@ public class TermList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Go to the Add Term screen
     public void goToAddTerm(View view) {
         Intent intent = new Intent(TermList.this, AddTerm.class);
         startActivity(intent);

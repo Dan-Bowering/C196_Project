@@ -3,6 +3,7 @@ package com.example.c196project.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+// Assessment class
 @Entity(tableName = "assessments")
 public class Assessment {
 
@@ -14,6 +15,7 @@ public class Assessment {
     private String assessmentEnd;
     private int courseId;
 
+    // Assessment class constructor
     public Assessment(int assessmentId, String assessmentName, String assessmentType,
                       String assessmentStart, String assessmentEnd, int courseId) {
         this.assessmentId = assessmentId;
@@ -36,6 +38,7 @@ public class Assessment {
                 '}';
     }
 
+    //**********  Setters and Getters  **********//
     public int getAssessmentId() {
         return assessmentId;
     }

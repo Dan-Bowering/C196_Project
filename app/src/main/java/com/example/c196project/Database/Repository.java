@@ -34,6 +34,7 @@ public class Repository {
         mAssessmentDAO = db.assessmentDAO();
     }
 
+    //**********  CRUD operations for Terms DB **********//
     public List<Term> getAllTerms() {
         databaseExecutors.execute(() -> {
             mAllTerms = mTermDAO.getAllTerms();
@@ -44,18 +45,6 @@ public class Repository {
             e.printStackTrace();
         }
         return mAllTerms;
-    }
-
-    public List<Term> getAllTermIds() {
-        databaseExecutors.execute(() -> {
-            mAllTermIds = mTermDAO.getAllTermIds();
-        });
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return mAllTermIds;
     }
 
     public void insert(Term term) {
@@ -94,7 +83,7 @@ public class Repository {
         }
     }
 
-
+    //**********  CRUD operations for Courses DB **********//
     public List<Course> getAllCourses() {
         databaseExecutors.execute(() -> {
             mAllCourses = mCourseDAO.getAllCourses();
@@ -144,6 +133,7 @@ public class Repository {
         }
     }
 
+    //**********  CRUD operations for Assessments DB **********//
     public List<Assessment> getAllAssessments() {
         databaseExecutors.execute(() -> {
             mAllAssessments = mAssessmentDAO.getAllAssessments();

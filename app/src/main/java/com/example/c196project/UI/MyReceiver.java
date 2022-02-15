@@ -17,6 +17,7 @@ public class MyReceiver extends BroadcastReceiver {
     String channelID = "test";
     static int notificationID;
 
+    // Called when the BroadcastReceiver is receiving an intent broadcast
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -28,10 +29,9 @@ public class MyReceiver extends BroadcastReceiver {
                 .setContentTitle("Notification Alert").build();
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(notificationID++, n);
-        // TODO: This method is called when the BroadcastReceiver is receiving
-        // an Intent broadcast.
     }
 
+    // Creates the notification channel notifications can be posted to
     private void createNotificationChannel(Context context, String CHANNEL_ID) {
 
         CharSequence name = context.getResources().getString(R.string.channel_name);

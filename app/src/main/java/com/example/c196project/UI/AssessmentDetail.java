@@ -48,6 +48,7 @@ public class AssessmentDetail extends AppCompatActivity {
     String dateFormat;
     Assessment currentAssessment;
 
+    // Loads XML activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,10 +139,12 @@ public class AssessmentDetail extends AppCompatActivity {
         });
     }
 
+    // Sets the Start Date DatePicker to the current date
     private void updateLabelStart() {
         editStart.setText(sdf.format(calendarStart.getTime()));
     }
 
+    // Sets the End Date DatePicker to the current date
     private void updateLabelEnd() {
         editEnd.setText(sdf.format(calendarEnd.getTime()));
     }
@@ -153,12 +156,16 @@ public class AssessmentDetail extends AppCompatActivity {
         return true;
     }
 
+    // Method to return/handle item from action bar selected
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
+            // Returns to the previous screen
             case android.R.id.home:
                 this.finish();
                 return true;
 
+            // Deletes the selected assessment
             case R.id.delete:
                 for (Assessment assessment : repository.getAllAssessments()) {
                     if (assessment.getAssessmentId() == id) currentAssessment = assessment;
@@ -170,6 +177,7 @@ public class AssessmentDetail extends AppCompatActivity {
                 finish();
                 return true;
 
+           // Enables the notification alert for the start date
             case R.id.startNotify:
                 String startDateFromScreen = editStart.getText().toString();
                 Date startDate = null;
@@ -189,6 +197,7 @@ public class AssessmentDetail extends AppCompatActivity {
                 startAlarmManager.set(AlarmManager.RTC_WAKEUP, startTrigger, startSender);
                 return true;
 
+            //  Enables the notification alert for the end date
             case R.id.endNotify:
                 String endDateFromScreen = editEnd.getText().toString();
                 Date endDate = null;
@@ -211,6 +220,7 @@ public class AssessmentDetail extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Saves input in the form and updates the selected assessment
     public void saveUpdateAssessmentButton(View view) {
 
         Assessment assessment;

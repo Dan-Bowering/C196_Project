@@ -3,6 +3,8 @@ package com.example.c196project.Entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+
+// Course class
 @Entity(tableName = "courses")
 public class Course {
 
@@ -18,6 +20,7 @@ public class Course {
     private int termId;
     private String courseNote;
 
+    //Course class constructor
     public Course(int courseId, String courseName, String courseStart, String courseEnd,
                   String courseStatus, String instructorName, String instructorPhone,
                   String instructorEmail, int termId, String courseNote) {
@@ -48,6 +51,8 @@ public class Course {
                 ", courseNote=" + courseNote + '}';
     }
 
+
+    //**********  Setters and Getters  **********//
     public int getCourseId() {
         return courseId;
     }

@@ -16,10 +16,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static int numAlert;
 
+    // Loads XML activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Manually adds data to the repository
         Repository repo = new Repository(getApplication());
         Term term = new Term(1, "Term 1", "02/01/2022", "07/31/2022");
         repo.insert(term);
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(assessment);
     }
 
+    // Enters the app when the Enter button is clicked
     public void enterHandler(View view) {
         Intent intent = new Intent(MainActivity.this, TermList.class);
         startActivity(intent);

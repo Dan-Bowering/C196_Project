@@ -47,6 +47,7 @@ public class CourseList extends AppCompatActivity {
     Term currentTerm;
     int numCourses;
 
+    // Loads XML activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,10 +145,12 @@ public class CourseList extends AppCompatActivity {
         });
     }
 
+    // Sets the Start Date DatePicker to the current date
     private void updateLabelStart() {
         editStart.setText(sdf.format(calendarStart.getTime()));
     }
 
+    // Sets the End Date DatePicker to the current date
     private void updateLabelEnd() {
         editEnd.setText(sdf.format(calendarEnd.getTime()));
     }
@@ -159,12 +162,16 @@ public class CourseList extends AppCompatActivity {
         return true;
     }
 
+    // Method to return/handle item from action bar selected
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
+            // Returns to the previous screen
             case android.R.id.home:
                 this.finish();
                 return true;
 
+            // Refreshes the RecyclerView/list
             case R.id.refresh:
                 RecyclerView recyclerView = findViewById(R.id.courseRecyclerView);
                 repository = new Repository((getApplication()));
@@ -181,6 +188,7 @@ public class CourseList extends AppCompatActivity {
                 adapter.setCourses(associatedCourses);
                 return true;
 
+            // Deletes the selected term if there is no associated course
             case R.id.delete:
                 for (Term term : repository.getAllTerms()) {
                     if (term.getTermId() == id) currentTerm = term;
@@ -205,6 +213,7 @@ public class CourseList extends AppCompatActivity {
         return true;
     }
 
+    // Saves input in the form and updates the selected term
     public void saveUpdateTermButton(View view) {
 
         Term term;
@@ -216,6 +225,7 @@ public class CourseList extends AppCompatActivity {
         finish();
     }
 
+    // Go to the Add Course screen
     public void goToAddCourse(View view) {
 
         Intent intent = new Intent(CourseList.this, AddCourse.class);

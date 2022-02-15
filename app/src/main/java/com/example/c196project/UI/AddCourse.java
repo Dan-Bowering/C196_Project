@@ -6,8 +6,12 @@ import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.c196project.Database.Repository;
 import com.example.c196project.Entity.Course;
@@ -36,7 +40,7 @@ public class AddCourse extends AppCompatActivity {
     final Calendar calendarEnd = Calendar.getInstance();
     String dateFormat;
 
-
+    // Loads XML activity and initializes EditText fields
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,15 +116,20 @@ public class AddCourse extends AppCompatActivity {
         });
     }
 
+    // Sets the Start Date DatePicker to the current date
     private void updateLabelStart() {
         editStart.setText(sdf.format(calendarStart.getTime()));
     }
 
+    // Sets the End Date DatePicker to the current date
     private void updateLabelEnd() {
         editEnd.setText(sdf.format(calendarEnd.getTime()));
     }
 
+    // Method to return/handle item from action bar selected
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Returns to the previous screen
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
@@ -129,7 +138,7 @@ public class AddCourse extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    // Saves input in the form and adds the new course
     public void saveAddCourseButton (View view){
 
         Course course;

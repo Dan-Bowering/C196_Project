@@ -62,7 +62,7 @@ public class AssessmentList extends AppCompatActivity {
     Course currentCourse;
     int numAssessments;
 
-
+    // Loads XML activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,12 +193,16 @@ public class AssessmentList extends AppCompatActivity {
         return true;
     }
 
+    // Method to return/handle item from action bar selected
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
+            // Returns to the previous screen
             case android.R.id.home:
                 this.finish();
                 return true;
 
+            // Refreshes the RecyclerView/list
             case R.id.refresh:
                 RecyclerView recyclerView = findViewById(R.id.assessmentRecyclerView);
                 repository = new Repository((getApplication()));
@@ -215,6 +219,7 @@ public class AssessmentList extends AppCompatActivity {
                 adapter.setAssessments(associatedAssessments);
                 return true;
 
+            // Deletes the selected course if there is no associated assessment
             case R.id.delete:
                 for (Course course : repository.getAllCourses()) {
                     if (course.getCourseId() == id) currentCourse = course;
@@ -237,6 +242,7 @@ public class AssessmentList extends AppCompatActivity {
                 }
                 return true;
 
+            // Activity/Intent that allows sharing course notes via SMS/Text/Email
             case R.id.share:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
@@ -248,6 +254,7 @@ public class AssessmentList extends AppCompatActivity {
                 startActivity(shareIntent);
                 return true;
 
+            // Enables the notification alert for the start date
             case R.id.startNotify:
                 String startDateFromScreen = editStart.getText().toString();
                 Date startDate = null;
@@ -267,6 +274,7 @@ public class AssessmentList extends AppCompatActivity {
                 startAlarmManager.set(AlarmManager.RTC_WAKEUP, startTrigger, startSender);
                 return true;
 
+            // Enables the notification alert for the end date
             case R.id.endNotify:
                 String endDateFromScreen = editEnd.getText().toString();
                 Date endDate = null;
@@ -289,6 +297,7 @@ public class AssessmentList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Saves input in the form and updates the selected course
     public void saveUpdateCourseButton(View view) {
 
         Course course;
@@ -303,6 +312,7 @@ public class AssessmentList extends AppCompatActivity {
         finish();
     }
 
+    // Go to the Add Assessment screen
     public void goToAddAssessment(View view) {
 
         Intent intent =  new Intent(AssessmentList.this, AddAssessment.class);
